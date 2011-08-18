@@ -22,12 +22,16 @@ zul.fiddle.notification.Notification = zk.$extends(zk.Widget, {
 			}
 		}
 	},
-	bind_: function() {
+	$init:	function () {
+		this.$supers(zul.fiddle.notification.Notification, '$init', arguments);
+		this.actions_ = {} ;
+	},
+	bind_: function () {
 		this.$supers(zul.fiddle.notification.Notification, 'bind_', arguments);
 		if (!this.actions_["hide"]) {
 			var wgt = this;
 			this.actions_["hide"] = [function(n, opts) {
-				jq(n).fadeOut(1000, function() {
+				jq(n).fadeOut(2000, function() {
 					wgt.afterAnima_(false);
 				})
 			}, null];
