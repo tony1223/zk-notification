@@ -1,0 +1,33 @@
+
+It's inspired from this jQuery widget.
+http://www.erichynds.com/jquery/a-jquery-ui-growl-ubuntu-notification-widget/
+
+
+Simply have a component that could show some notification 
+and show/detach with fade effect.
+
+Simple Demo
+http://www.youtube.com/watch?v=5Wy4cERMOe0
+
+Test Zul:
+
+<zk>
+	<notification title="test title" message="test" />
+
+	<notification message="test" />
+
+	<notification width="200px" height="200px" message="test" />
+
+	<notification width="200px" height="200px" title="test title"
+		message="test" />
+
+	<notification
+		style="background:none repeat scroll 0 0 rgba(59, 219, 107, 0.8)"
+		width="200px" height="200px" message="test" />
+
+	<notification message="test component.detach" onClick="self.detach();" />
+
+	<notification message="will close after 5 seconds"
+		onCreate="self.detachAfter(5);" />
+
+</zk>  
