@@ -7,13 +7,26 @@ import org.zkoss.zul.impl.XulElement;
 
 public class Notification extends XulElement {
 
-	{
+	static {
 		addClientEvent(Notification.class, Events.ON_CLOSE, CE_IMPORTANT | CE_NON_DEFERRABLE);
 	}
 
 	private String _title;
 
 	private String _message;
+
+	public Notification() {
+
+	}
+
+	public Notification(String message) {
+		this(message, null);
+	}
+
+	public Notification(String message, String title) {
+		this._message = message;
+		this._title = title;
+	}
 
 	public String getTitle() {
 		return _title;
