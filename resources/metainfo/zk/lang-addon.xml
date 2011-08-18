@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language-addon>
+	<addon-name>notification</addon-name> <!-- required -->
+
+ 	<version>
+		<version-class>org.zkoss.fiddle.notification.Version</version-class>
+		<version-uid>0.8.0</version-uid>
+		<zk-version>5.0.0</zk-version><!-- or later -->
+	</version>
+
+	<language-name>xul/html</language-name>
+	<component>
+		<component-name>notification</component-name> <!-- required -->
+		<component-class>org.zkoss.fiddle.notification.Notification</component-class> <!-- required -->
+		<widget-class>zul.fiddle.notification.Notification</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/notification.js</mold-uri>
+			<css-uri>css/notification.css.dsp</css-uri>
+		</mold>
+	</component>
+</language-addon>
