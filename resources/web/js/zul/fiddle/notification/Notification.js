@@ -4,6 +4,7 @@
 zul.fiddle.notification.Notification = zk.$extends(zk.Widget, {
 	_title: '',
 	_message: '',
+	_fadeoutDuring:1000,
 	$define: {
 		message: function(msg) {
 			if (this.desktop) {
@@ -24,23 +25,21 @@ zul.fiddle.notification.Notification = zk.$extends(zk.Widget, {
 	},
 	$init:	function () {
 		this.$supers(zul.fiddle.notification.Notification, '$init', arguments);
-		this.actions_ = {} ;
+		var wgt = this;
+		this.actions_ = {
+			hide:[function(n, opts) {
+				jq(n).fadeOut(this._fadeoutDuring, function() {
+					wgt.afterAnima_(false);
+				})
+			}, null]
+		} ;
 	},
 	bind_: function () {
 		this.$supers(zul.fiddle.notification.Notification, 'bind_', arguments);
-		if (!this.actions_["hide"]) {
-			var wgt = this;
-			this.actions_["hide"] = [function(n, opts) {
-				jq(n).fadeOut(2000, function() {
-					wgt.afterAnima_(false);
-				})
-			}, null];
-		}
 		this.domListen_(this.$n("close"), "onClick", "doClose_")
 		if (!this._title) {
 			jq(this.$n("title")).hide();
 		}
-		
 		if (this.isVisible()) {
 			jq(this).hide().fadeIn();
 		}
